@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:awesome_icons/awesome_icons.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -8,15 +7,46 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(91, 77, 167, 1),
-      body: Row(
-        children: [
-          Image.asset('assets/images/bucket.png'),
-          Text(
-            'XTintas',
-            style: TextStyle(fontSize: 18),
-          )
-        ],
+      backgroundColor: const Color.fromRGBO(97, 67, 177, 1),
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                    height: 57,
+                    width: 57,
+                    child: Image.asset('assets/bucket_and_paint.png')),
+                const Text(
+                  'XTintas',
+                  style: TextStyle(fontSize: 18),
+                ),
+              ],
+            ),
+            const Text('Entrar na plataforma'),
+            const Text('E-mail'),
+            const TextField(
+              decoration:
+                  InputDecoration(hintText: 'fernandadasilva@onu.com.br'),
+            ),
+            const Text('Senha'),
+            TextField(
+              obscureText: true,
+              obscuringCharacter: '*',
+              decoration: InputDecoration(
+                  hintText: '********',
+                  suffixIcon: IconButton(
+                      onPressed: () {}, icon: const Icon(FontAwesomeIcons.eyeSlash))),
+            ),
+            FloatingActionButton(
+              onPressed: () {},
+              child: const Text('Login'),
+            ),
+            TextButton(onPressed: () {}, child: const Text('Criar conta'))
+          ],
+        ),
       ),
     );
   }
