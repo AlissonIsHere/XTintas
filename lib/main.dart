@@ -1,4 +1,5 @@
 import 'package:app_xtintas/View/Authentication/login_page.dart';
+import 'package:app_xtintas/View/Authentication/registration_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +15,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(scaffoldBackgroundColor: Colors.transparent),
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
-      routes: {'/': (context) => const LoginPage()},
+      routes: {
+        '/': (context) => const LoginPage(),
+        '/registration':(context) => const RegistrationPage(),
+      
+      },
     );
   }
 }

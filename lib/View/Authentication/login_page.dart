@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:awesome_icons/awesome_icons.dart';
 
@@ -38,13 +40,18 @@ class LoginPage extends StatelessWidget {
               decoration: InputDecoration(
                   hintText: '********',
                   suffixIcon: IconButton(
-                      onPressed: () {}, icon: const Icon(FontAwesomeIcons.eyeSlash))),
+                      onPressed: () {},
+                      icon: const Icon(FontAwesomeIcons.eyeSlash))),
             ),
             FloatingActionButton(
               onPressed: () {},
               child: const Text('Login'),
             ),
-            TextButton(onPressed: () {}, child: const Text('Criar conta'))
+            TextButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/registration');
+                },
+                child: const Text('Criar conta'))
           ],
         ),
       ),
