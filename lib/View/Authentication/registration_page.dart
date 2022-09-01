@@ -17,6 +17,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
       body: Column(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
                   height: 57,
