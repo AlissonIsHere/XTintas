@@ -1,3 +1,4 @@
+import 'package:app_xtintas/View/Authentication/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +15,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      
+      initialRoute: '/',
+      routes: {
+        '/':(context) => LoginPage()
+      },
     );
   }
 }
