@@ -1,5 +1,6 @@
 import 'package:app_xtintas/View/Authentication/login_page.dart';
 import 'package:app_xtintas/View/Authentication/registration_page.dart';
+import 'package:app_xtintas/View/store_page.dart';
 import 'package:app_xtintas/View/tutorial_page.dart';
 import 'package:flutter/material.dart';
 
