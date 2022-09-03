@@ -125,7 +125,9 @@ class _LoginPageState extends State<LoginPage> {
                   height: 80,
                   width: 240,
                   child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/store');
+                      },
                       icon: Image.asset('assets/large_width_button.png')),
                 ),
               ),
