@@ -1,4 +1,5 @@
 
+
 import 'package:app_xtintas/View/cart_page.dart';
 import 'package:app_xtintas/View/profile_page.dart';
 import 'package:app_xtintas/View/store_page.dart';
@@ -42,6 +43,7 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
       body: PageView(
         controller: pageController,
         children: [
+
           SafeArea(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
