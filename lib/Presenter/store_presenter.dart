@@ -8,7 +8,6 @@ class StorePresenter with ChangeNotifier {
   List<PaintOptions> listPaintOptions = [];
 
   void getPaintOptions() async {
-    notifyListeners();
     listPaintOptions = await paintOptionsRepository.getPaintOptions();
     notifyListeners();
   }
