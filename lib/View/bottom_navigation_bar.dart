@@ -1,6 +1,3 @@
-import 'package:app_xtintas/View/cart_page.dart';
-import 'package:app_xtintas/View/profile_page.dart';
-import 'package:app_xtintas/View/store_page.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -40,15 +37,45 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
       body: PageView(
         controller: pageController,
         children: [
-          Container(
-            color: Colors.amber,
+          SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Center(
+                    child: Text(
+                  'Opções de tintas',
+                  style: GoogleFonts.openSans(
+                      fontWeight: FontWeight.bold, fontSize: 26),
+                )),
+              ],
+            ),
           ),
-          Container(
-            color: Colors.blue,
+          SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Center(
+                    child: Text(
+                  'Carrinho',
+                  style: GoogleFonts.openSans(
+                      fontWeight: FontWeight.bold, fontSize: 26),
+                )),
+              ],
+            ),
           ),
-          Container(
-            color: Colors.green,
-          )
+          SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Center(
+                    child: Text(
+                  'Perfil',
+                  style: GoogleFonts.openSans(
+                      fontWeight: FontWeight.bold, fontSize: 26),
+                )),
+              ],
+            ),
+          ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
