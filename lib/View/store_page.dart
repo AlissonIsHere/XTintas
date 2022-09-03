@@ -1,8 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:scaffold_gradient_background/scaffold_gradient_background.dart';
-import 'package:flutter/material.dart';
 
 class StorePage extends StatefulWidget {
   const StorePage({Key? key}) : super(key: key);
@@ -12,7 +11,6 @@ class StorePage extends StatefulWidget {
 }
 
 class _StorePageState extends State<StorePage> {
-  int _currentTabIndex = 0;
   @override
   Widget build(BuildContext context) {
     return ScaffoldGradientBackground(
@@ -24,21 +22,7 @@ class _StorePageState extends State<StorePage> {
             Color.fromARGB(255, 220, 220, 220),
             Color.fromARGB(255, 244, 237, 255),
           ]),
-      body: SafeArea(
-        child: Column(
-          children: [
-            Center(
-              child: Text(
-                'Opções de tintas',
-                style: GoogleFonts.openSans(
-                  fontSize: 26,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+          body: Container(color: Colors.green),
     );
   }
 }
