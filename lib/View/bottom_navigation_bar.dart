@@ -1,7 +1,8 @@
-
+import 'package:app_xtintas/Presenter/store_presenter.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:scaffold_gradient_background/scaffold_gradient_background.dart';
 import 'package:flutter/material.dart';
 
@@ -38,22 +39,31 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
       body: PageView(
         controller: pageController,
         children: [
-
           SafeArea(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Center(
-                    child: Text(
-                  'Opções de tintas',
-                  style: GoogleFonts.openSans(
-                      fontWeight: FontWeight.bold, fontSize: 26),
-                )),
-              ],
-            ),
-
-          ),
-
+              child:
+                  Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+            Center(
+                child: Text(
+              'Opções de tintas',
+              style: GoogleFonts.openSans(
+                  fontWeight: FontWeight.bold, fontSize: 26),
+            )),
+            Consumer<StorePresenter>(builder: (_, p, widget) {
+              return ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: p.listPaintOptions.length,
+                itemBuilder: (context, index) {
+                  return Card(
+                    child: ListTile(
+                      title: Text(p.listPaintOptions[index].name ?? ''),
+                      leading:
+                          Image.network(p.listPaintOptions[index].image ?? ''),
+                    ),
+                  );
+                },
+              );
+            })
+          ])),
           SafeArea(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -80,7 +90,6 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
               ],
             ),
           ),
-
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
