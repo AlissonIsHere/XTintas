@@ -12,7 +12,8 @@ class PaintOptionsRepository {
 
     if (response.statusCode == 200) {
       Map json = const JsonDecoder().convert(response.body);
-      for (var element in (json['data'] as List)) {
+      
+    for (var element in (json['data'] as List)) {
         listPaintOptions.add(PaintOptions.fromJson(element));
       }
       return listPaintOptions;
