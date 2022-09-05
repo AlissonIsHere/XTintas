@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(scaffoldBackgroundColor: Colors.transparent),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/navigationBar',
+      initialRoute: '/',
       routes: {
         '/': (context) => const LoginPage(),
         '/registration': (context) => const RegistrationPage(),
