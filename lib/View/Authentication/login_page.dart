@@ -13,6 +13,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _formKey = GlobalKey<FormState>();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return ScaffoldGradientBackground(
@@ -23,124 +27,147 @@ class _LoginPageState extends State<LoginPage> {
               Color.fromARGB(255, 116, 99, 214),
               Color.fromRGBO(91, 77, 167, 1),
             ]),
-        body: SingleChildScrollView(
-          child: SafeArea(
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                      height: 57,
-                      width: 57,
-                      child: Image.asset('assets/bucket_and_paint.png')),
-                  Text(
-                    'XTintas',
-                    style: GoogleFonts.openSans(
-                        color: Colors.white,
-                        fontSize: 36,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              SizedBox(height: 30),
-              Padding(
-                padding: const EdgeInsets.only(top: 100, bottom: 50),
-                child: Text(
-                  'Entrar na plataforma',
-                  style: GoogleFonts.openSans(
-                      color: Colors.white,
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 12, left: 35),
-                  child: Text(
-                    'E-mail',
-                    style: GoogleFonts.openSans(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: TextField(
-                  onChanged: (text) {},
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.all(Radius.circular(5))),
-                      filled: true,
-                      fillColor: Colors.white38,
-                      hintText: 'fernandadasilva@onu.com.br',
-                      hintStyle: GoogleFonts.openSans(
-                          fontSize: 16, color: Colors.white)),
-                ),
-              ),
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 12, left: 35, top: 20),
-                  child: Text(
-                    'Senha',
-                    style: GoogleFonts.openSans(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: TextField(
-                  onChanged: (text) {},
-                  obscureText: true,
-                  obscuringCharacter: '*',
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.all(Radius.circular(5))),
-                      filled: true,
-                      fillColor: Colors.white38,
-                      hintText: '********',
-                      hintStyle: GoogleFonts.openSans(
-                          fontSize: 16, color: Colors.white),
-                      suffixIcon: IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            FontAwesomeIcons.eyeSlash,
-                            color: Colors.white70,
-                          ))),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 25),
-                child: SizedBox(
-                  height: 80,
-                  width: 240,
-                  child: IconButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/navigationBar');
-                      },
-                      icon: Image.asset('assets/large_width_button.png')),
-                ),
-              ),
-              TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/registration');
-                  },
-                  child: Text(
-                    'Criar conta',
-                    style: GoogleFonts.openSans(
-                        fontSize: 16, color: Colors.white60),
-                  )),
-            ]),
+        body: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
+            child: SafeArea(
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                            height: 57,
+                            width: 57,
+                            child: Image.asset('assets/bucket_and_paint.png')),
+                        Text(
+                          'XTintas',
+                          style: GoogleFonts.openSans(
+                              color: Colors.white,
+                              fontSize: 36,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 30),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 100, bottom: 50),
+                      child: Text(
+                        'Entrar na plataforma',
+                        style: GoogleFonts.openSans(
+                            color: Colors.white,
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 12, left: 35),
+                        child: Text(
+                          'E-mail',
+                          style: GoogleFonts.openSans(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: TextFormField(
+                        controller: _emailController,
+                        onChanged: (text) {},
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5))),
+                            filled: true,
+                            fillColor: Colors.white38,
+                            hintText: 'fernandadasilva@onu.com.br',
+                            hintStyle: GoogleFonts.openSans(
+                                fontSize: 16, color: Colors.white)),
+                        validator: (email) {
+                          if (email == null || email.isEmpty) {
+                            return 'Digite seu email';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            bottom: 12, left: 35, top: 20),
+                        child: Text(
+                          'Senha',
+                          style: GoogleFonts.openSans(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: TextFormField(
+                        controller: _passwordController,
+                        onChanged: (text) {},
+                        obscureText: true,
+                        obscuringCharacter: '*',
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5))),
+                            filled: true,
+                            fillColor: Colors.white38,
+                            hintText: '********',
+                            hintStyle: GoogleFonts.openSans(
+                                fontSize: 16, color: Colors.white),
+                            suffixIcon: IconButton(
+                                onPressed: () {},
+                                icon: const Icon(
+                                  FontAwesomeIcons.eyeSlash,
+                                  color: Colors.white70,
+                                ))),
+                        validator: (password) {
+                          if (password == null || password.isEmpty) {
+                            return 'Digite sua senha';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 25),
+                      child: SizedBox(
+                        height: 80,
+                        width: 240,
+                        child: IconButton(
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                Navigator.pushNamed(context, '/navigationBar');
+                              }
+                            },
+                            icon: Image.asset('assets/large_width_button.png')),
+                      ),
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pushNamed('/registration');
+                        },
+                        child: Text(
+                          'Criar conta',
+                          style: GoogleFonts.openSans(
+                              fontSize: 16, color: Colors.white60),
+                        )),
+                  ]),
+            ),
           ),
         ));
   }
