@@ -29,12 +29,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(scaffoldBackgroundColor: Colors.transparent),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
+      initialRoute: '/registration',
       routes: {
         '/': (context) => const LoginPage(),
         '/registration': (context) => const RegistrationPage(),
         '/tutorial': (context) => TutorialPage(),
-        '/navigationBar': (context) => AppPages()
+        '/appPages': (context) => AppPages()
       },
     );
   }
