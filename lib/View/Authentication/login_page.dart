@@ -5,6 +5,8 @@ import 'package:awesome_icons/awesome_icons.dart';
 import 'package:scaffold_gradient_background/scaffold_gradient_background.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'registration_page.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -37,16 +39,23 @@ class _LoginPageState extends State<LoginPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(
-                            height: 57,
-                            width: 57,
-                            child: Image.asset('assets/bucket_and_paint.png')),
-                        Text(
-                          'XTintas',
-                          style: GoogleFonts.openSans(
-                              color: Colors.white,
-                              fontSize: 36,
-                              fontWeight: FontWeight.bold),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: SizedBox(
+                              height: 57,
+                              width: 57,
+                              child:
+                                  Image.asset('assets/bucket_and_paint.png')),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 30),
+                          child: Text(
+                            'XTintas',
+                            style: GoogleFonts.openSans(
+                                color: Colors.white,
+                                fontSize: 36,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ),
                       ],
                     ),
@@ -75,29 +84,8 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: TextFormField(
-                        controller: _emailController,
-                        onChanged: (text) {},
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5))),
-                            filled: true,
-                            fillColor: Colors.white38,
-                            hintText: 'fernandadasilva@onu.com.br',
-                            hintStyle: GoogleFonts.openSans(
-                                fontSize: 16, color: Colors.white)),
-                        validator: (email) {
-                          if (email == null || email.isEmpty) {
-                            return 'Digite seu email';
-                          }
-                          return null;
-                        },
-                      ),
-                    ),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: emailTextFormField(_emailController)),
                     Align(
                       alignment: Alignment.bottomLeft,
                       child: Padding(
@@ -113,36 +101,8 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: TextFormField(
-                        controller: _passwordController,
-                        onChanged: (text) {},
-                        obscureText: true,
-                        obscuringCharacter: '*',
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5))),
-                            filled: true,
-                            fillColor: Colors.white38,
-                            hintText: '********',
-                            hintStyle: GoogleFonts.openSans(
-                                fontSize: 16, color: Colors.white),
-                            suffixIcon: IconButton(
-                                onPressed: () {},
-                                icon: const Icon(
-                                  FontAwesomeIcons.eyeSlash,
-                                  color: Colors.white70,
-                                ))),
-                        validator: (password) {
-                          if (password == null || password.isEmpty) {
-                            return 'Digite sua senha';
-                          }
-                          return null;
-                        },
-                      ),
-                    ),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: senhaTextFormField(_passwordController)),
                     Padding(
                       padding: const EdgeInsets.only(top: 25),
                       child: SizedBox(
