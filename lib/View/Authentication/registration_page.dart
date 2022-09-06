@@ -12,10 +12,10 @@ class RegistrationPage extends StatefulWidget {
 
 class _RegistrationPageState extends State<RegistrationPage> {
   final _formKey = GlobalKey<FormState>();
-  final _nameController = TextEditingController();
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-  final _confirmPasswordController = TextEditingController();
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +81,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: TextFormField(
-                    controller: _nameController,
+                    controller: nameController,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderSide: BorderSide.none,
@@ -115,7 +115,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 ),
                 Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: emailTextFormField(_emailController)),
+                    child: emailTextFormField(emailController)),
                 Align(
                   alignment: Alignment.bottomLeft,
                   child: Padding(
@@ -132,7 +132,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: senhaTextFormField(_passwordController),
+                  child: senhaTextFormField(passwordController),
                 ),
                 Align(
                   alignment: Alignment.bottomLeft,
@@ -150,7 +150,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: senhaTextFormField(_confirmPasswordController),
+                  child: senhaTextFormField(confirmPasswordController),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 25),

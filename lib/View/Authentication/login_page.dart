@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:app_xtintas/Presenter/login_presenter.dart';
 import 'package:flutter/material.dart';
 import 'package:awesome_icons/awesome_icons.dart';
+import 'package:provider/provider.dart';
 import 'package:scaffold_gradient_background/scaffold_gradient_background.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -108,13 +110,19 @@ class _LoginPageState extends State<LoginPage> {
                       child: SizedBox(
                         height: 80,
                         width: 240,
-                        child: IconButton(
-                            onPressed: () {
-                              if (_formKey.currentState!.validate()) {
-                                Navigator.pushNamed(context, '/navigationBar');
-                              }
-                            },
-                            icon: Image.asset('assets/large_width_button.png')),
+                        child:
+                            Consumer<LoginPresenter>(builder: (_, p, widget) {
+                          return IconButton(
+                              onPressed: () {
+                                if (_formKey.currentState!.validate()) {
+                                  p.getToken();
+                                  Navigator.pushNamed(
+                                      context, '/navigationBar');
+                                }
+                              },
+                              icon:
+                                  Image.asset('assets/large_width_button.png'));
+                        }),
                       ),
                     ),
                     TextButton(
