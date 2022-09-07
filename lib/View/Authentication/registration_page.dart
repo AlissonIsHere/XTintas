@@ -1,10 +1,12 @@
+import 'package:app_xtintas/Model/Repositories/register_repository.dart';
 import 'package:awesome_icons/awesome_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:scaffold_gradient_background/scaffold_gradient_background.dart';
 
 class RegistrationPage extends StatefulWidget {
-  const RegistrationPage({Key? key}) : super(key: key);
+  RegistrationPage({Key? key}) : super(key: key);
 
   @override
   State<RegistrationPage> createState() => _RegistrationPageState();
@@ -12,13 +14,15 @@ class RegistrationPage extends StatefulWidget {
 
 class _RegistrationPageState extends State<RegistrationPage> {
   final _formKey = GlobalKey<FormState>();
-  final nameController = TextEditingController();
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
-  final confirmPasswordController = TextEditingController();
+  final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final data = Provider.of<RegisterData>(context);
+
     return ScaffoldGradientBackground(
       gradient: LinearGradient(
           begin: Alignment.bottomLeft,
@@ -81,7 +85,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: TextFormField(
-                    controller: nameController,
+                    controller: _nameController,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderSide: BorderSide.none,
@@ -115,7 +119,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 ),
                 Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: emailTextFormField(emailController)),
+                    child: emailTextFormField(_emailController)),
                 Align(
                   alignment: Alignment.bottomLeft,
                   child: Padding(
@@ -132,7 +136,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: senhaTextFormField(passwordController),
+                  child: senhaTextFormField(_passwordController),
                 ),
                 Align(
                   alignment: Alignment.bottomLeft,
@@ -150,7 +154,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: senhaTextFormField(confirmPasswordController),
+                  child: senhaTextFormField(_confirmPasswordController),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 25),
@@ -160,6 +164,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     child: IconButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
+                            data.fetchData( _nameController.text, _emailController.text, _passwordController.text);
                             Navigator.of(context).pushNamed('/');
                           }
                         },

@@ -1,7 +1,9 @@
 
 import 'package:app_xtintas/Model/Repositories/login_repository.dart';
 import 'package:app_xtintas/Model/Repositories/paint_options_repository.dart';
+import 'package:app_xtintas/Model/Repositories/register_repository.dart';
 import 'package:app_xtintas/Model/paint_options.dart';
+import 'package:app_xtintas/Model/user.dart';
 import 'package:app_xtintas/Presenter/login_presenter.dart';
 import 'package:app_xtintas/Presenter/store_presenter.dart';
 import 'package:app_xtintas/View/Authentication/login_page.dart';
@@ -19,8 +21,9 @@ void main() {
       ),
       ChangeNotifierProvider(
         create: (context) => LoginPresenter(LoginRepository()),
-      )
-    ],
+      ),
+      ChangeNotifierProvider<RegisterData>(create: ((context) => RegisterData())
+  )],
     child: const MyApp(),
   ));
 }
@@ -36,7 +39,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const LoginPage(),
-        '/registration': (context) => const RegistrationPage(),
+        '/registration': (context) => RegistrationPage(),
         '/tutorial': (context) => TutorialPage(),
         '/appPages': (context) => AppPages()
       },
