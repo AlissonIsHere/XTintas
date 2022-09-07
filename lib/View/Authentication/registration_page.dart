@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:scaffold_gradient_background/scaffold_gradient_background.dart';
-
+import 'package:app_xtintas/Presenter/register_presenter.dart';
 class RegistrationPage extends StatefulWidget {
   RegistrationPage({Key? key}) : super(key: key);
 
@@ -21,7 +21,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
   @override
   Widget build(BuildContext context) {
-    final data = Provider.of<RegisterData>(context);
+    final data = Provider.of<RegisterPresenter>(context);
 
     return ScaffoldGradientBackground(
       gradient: LinearGradient(

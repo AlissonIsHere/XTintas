@@ -5,6 +5,7 @@ import 'package:app_xtintas/Model/Repositories/register_repository.dart';
 import 'package:app_xtintas/Model/paint_options.dart';
 import 'package:app_xtintas/Model/user.dart';
 import 'package:app_xtintas/Presenter/login_presenter.dart';
+import 'package:app_xtintas/Presenter/register_presenter.dart';
 import 'package:app_xtintas/Presenter/store_presenter.dart';
 import 'package:app_xtintas/View/Authentication/login_page.dart';
 import 'package:app_xtintas/View/Authentication/registration_page.dart';
@@ -22,7 +23,7 @@ void main() {
       ChangeNotifierProvider(
         create: (context) => LoginPresenter(LoginRepository()),
       ),
-      ChangeNotifierProvider<RegisterData>(create: ((context) => RegisterData())
+      ChangeNotifierProvider<RegisterPresenter>(create: ((context) => RegisterPresenter())
   )],
     child: const MyApp(),
   ));

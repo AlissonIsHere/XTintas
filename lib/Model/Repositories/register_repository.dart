@@ -20,12 +20,4 @@ class RegisterRepository {
   }
 }
 
-class RegisterData extends ChangeNotifier {
-  late User user;
-  late final RegisterRepository registerRepository;
 
-  fetchData(String name, String email, String password) async {
-    user = await registerRepository.postRegister(name, email, password);
-    notifyListeners();
-  }
-}
