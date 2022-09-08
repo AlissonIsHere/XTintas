@@ -1,10 +1,12 @@
+import 'package:app_xtintas/Model/Repositories/register_repository.dart';
 import 'package:awesome_icons/awesome_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:scaffold_gradient_background/scaffold_gradient_background.dart';
-
+import 'package:app_xtintas/Presenter/register_presenter.dart';
 class RegistrationPage extends StatefulWidget {
-  const RegistrationPage({Key? key}) : super(key: key);
+  RegistrationPage({Key? key}) : super(key: key);
 
   @override
   State<RegistrationPage> createState() => _RegistrationPageState();
@@ -19,6 +21,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
   @override
   Widget build(BuildContext context) {
+    final data = Provider.of<RegisterPresenter>(context);
+
     return ScaffoldGradientBackground(
       gradient: LinearGradient(
           begin: Alignment.bottomLeft,
@@ -160,6 +164,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     child: IconButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
+                            data.fetchData( _nameController.text, _emailController.text, _passwordController.text);
                             Navigator.of(context).pushNamed('/');
                           }
                         },
