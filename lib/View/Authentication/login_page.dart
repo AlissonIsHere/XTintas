@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                                   Image.asset('assets/bucket_and_paint.png')),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 30),
+                          padding: const EdgeInsets.only(top: 34),
                           child: Text(
                             'XTintas',
                             style: GoogleFonts.openSans(
@@ -110,7 +110,6 @@ class _LoginPageState extends State<LoginPage> {
                       child: SizedBox(
                         height: 80,
                         width: 240,
-                        
                         child:
                             Consumer<LoginPresenter>(builder: (_, p, widget) {
                           return IconButton(
@@ -124,7 +123,6 @@ class _LoginPageState extends State<LoginPage> {
                               icon:
                                   Image.asset('assets/large_width_button.png'));
                         }),
-
                       ),
                     ),
                     TextButton(
