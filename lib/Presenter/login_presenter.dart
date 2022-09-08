@@ -9,7 +9,7 @@ class LoginPresenter extends ChangeNotifier {
   var token;
 
   void getToken() async {
-    token = await loginRepository.fetchLogin();
+    token = await loginRepository.getLogin();
     notifyListeners();
   }
 }

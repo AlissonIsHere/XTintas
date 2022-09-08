@@ -1,3 +1,4 @@
+import 'package:app_xtintas/Presenter/get_on_cart_presenter.dart';
 import 'package:app_xtintas/Presenter/paint_options_presenter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -76,29 +77,36 @@ class Store extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<PaintOptionsPresenter>(
-        builder: ((context, paint, child) => ListView.builder(
-            scrollDirection: Axis.horizontal,
-            prototypeItem: Center(
-                child: Text(
-              'Opções de tintas',
-              style: GoogleFonts.openSans(
-                  fontWeight: FontWeight.bold, fontSize: 26),
-            )),
-            itemCount: paint.listPaintOptions.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                leading:
-                    Image.network(paint.listPaintOptions[index].image ?? ''),
-                title: 
-                    Text(paint.listPaintOptions[index].name ?? ''),
-                trailing: FloatingActionButton(onPressed: () {
-                  Navigator.pushNamed(context, '/tutorial');
-                },
-                backgroundColor: const Color.fromRGBO(91, 77, 167, 1),
-                child: Text('Como pintar', style: GoogleFonts.openSans(fontWeight: FontWeight.bold, fontSize: 14, color: Colors.white),
-                ),
-              ));
-            })));
+        builder: ((context, paint, child) => Card(
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  prototypeItem: Center(
+                      child: Text(
+                    'Opções de tintas',
+                    style: GoogleFonts.openSans(
+                        fontWeight: FontWeight.bold, fontSize: 26),
+                  )),
+                  itemCount: paint.listPaintOptions.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                        leading: Image.network(
+                            paint.listPaintOptions[index].image ?? ''),
+                        title: Text(paint.listPaintOptions[index].name ?? ''),
+                        trailing: FloatingActionButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/tutorial');
+                          },
+                          backgroundColor: const Color.fromRGBO(91, 77, 167, 1),
+                          child: Text(
+                            'Como pintar',
+                            style: GoogleFonts.openSans(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                                color: Colors.white),
+                          ),
+                        ));
+                  }),
+            )));
   }
 }
 
@@ -107,9 +115,21 @@ class Cart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.blue,
-    );
+    return Consumer<GetOnCartPresenter>(
+        builder: ((context, cart, child) => Card(
+              child: ListView.builder(
+                  itemCount: cart.showOnCart.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      isThreeLine: true,
+                      leading: Image.network(
+                          cart.showOnCart[index].paint?.coverImage ?? ''),
+                      title: Text(cart.showOnCart[index].paint?.name ?? ''),
+                      subtitle: Text('${cart.showOnCart[index].quantity}'),
+                      trailing: Text(cart.showOnCart[index].paint?.price ?? ''),
+                    );
+                  }),
+            )));
   }
 }
 
