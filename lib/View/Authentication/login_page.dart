@@ -111,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: IconButton(
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
-                                Navigator.pushNamed(context, '/navigationBar');
+                                Navigator.pushNamed(context, '/appPages');
                               }
                             },
                             icon: Image.asset('assets/large_width_button.png')),
