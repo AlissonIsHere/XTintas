@@ -6,7 +6,7 @@ import 'package:app_xtintas/Model/paint_options.dart';
 import 'package:app_xtintas/Model/user.dart';
 import 'package:app_xtintas/Presenter/login_presenter.dart';
 import 'package:app_xtintas/Presenter/register_presenter.dart';
-import 'package:app_xtintas/Presenter/store_presenter.dart';
+import 'package:app_xtintas/Presenter/paint_options_presenter.dart';
 import 'package:app_xtintas/View/Authentication/login_page.dart';
 import 'package:app_xtintas/View/Authentication/registration_page.dart';
 import 'package:app_xtintas/View/app_pages.dart';
@@ -18,7 +18,7 @@ void main() {
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(
-        create: (context) => StorePresenter(PaintOptionsRepository()),
+        create: (context) => PaintOptionsPresenter(PaintOptionsRepository()),
       ),
       ChangeNotifierProvider(
         create: (context) => LoginPresenter(LoginRepository()),
