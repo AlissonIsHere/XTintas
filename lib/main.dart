@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(scaffoldBackgroundColor: Colors.transparent),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/appPages',
+      initialRoute: '/',
       routes: {
         '/': (context) => const LoginPage(),
         '/registration': (context) => RegistrationPage(),
