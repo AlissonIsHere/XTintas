@@ -1,9 +1,11 @@
 
+import 'package:app_xtintas/Model/Repositories/get_on_cart_repository.dart';
 import 'package:app_xtintas/Model/Repositories/login_repository.dart';
 import 'package:app_xtintas/Model/Repositories/paint_options_repository.dart';
 import 'package:app_xtintas/Model/Repositories/register_repository.dart';
 import 'package:app_xtintas/Model/paint_options.dart';
 import 'package:app_xtintas/Model/user.dart';
+import 'package:app_xtintas/Presenter/get_on_cart_presenter.dart';
 import 'package:app_xtintas/Presenter/login_presenter.dart';
 import 'package:app_xtintas/Presenter/register_presenter.dart';
 import 'package:app_xtintas/Presenter/paint_options_presenter.dart';
@@ -25,7 +27,10 @@ void main() {
       ),
       ChangeNotifierProvider<RegisterPresenter>(create: ((context) => RegisterPresenter())
   ),
-      ChangeNotifierProvider<WidgetModel> (create: (context) => WidgetModel())
+      ChangeNotifierProvider<WidgetModel> (create: (context) => WidgetModel()),
+      ChangeNotifierProvider(
+        create: (context) => GetOnCartPresenter(GetOnCartRepository()),
+      ),
   
   ],
     child: const MyApp(),

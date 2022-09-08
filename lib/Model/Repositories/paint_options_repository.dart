@@ -6,7 +6,6 @@ import 'package:http/http.dart' as http;
 class PaintOptionsRepository {
   Future<PaintOptions> getPaintOptions() async {
     Uri url = Uri.parse('https://62968cc557b625860610144c.mockapi.io/paints');
-    PaintOptions listPaintOptions;
 
     final response = await http.get(url);
 
