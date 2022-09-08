@@ -25,7 +25,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
     final data = Provider.of<RegisterPresenter>(context);
 
     return ScaffoldGradientBackground(
-      gradient: LinearGradient(
+      gradient: const LinearGradient(
           begin: Alignment.bottomLeft,
           end: Alignment.topRight,
           colors: [
@@ -88,7 +88,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   child: TextFormField(
                     controller: _nameController,
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                             borderSide: BorderSide.none,
                             borderRadius: BorderRadius.all(Radius.circular(5))),
                         filled: true,
@@ -189,7 +189,7 @@ senhaTextFormField(TextEditingController controller) {
     obscureText: true,
     obscuringCharacter: '*',
     decoration: InputDecoration(
-        border: OutlineInputBorder(
+        border: const OutlineInputBorder(
             borderSide: BorderSide.none,
             borderRadius: BorderRadius.all(Radius.circular(5))),
         filled: true,
@@ -215,7 +215,7 @@ emailTextFormField(TextEditingController controller) {
   return TextFormField(
     keyboardType: TextInputType.emailAddress,
     decoration: InputDecoration(
-        border: OutlineInputBorder(
+        border: const OutlineInputBorder(
             borderSide: BorderSide.none,
             borderRadius: BorderRadius.all(Radius.circular(5))),
         filled: true,

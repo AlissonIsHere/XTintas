@@ -24,7 +24,10 @@ void main() {
         create: (context) => LoginPresenter(LoginRepository()),
       ),
       ChangeNotifierProvider<RegisterPresenter>(create: ((context) => RegisterPresenter())
-  )],
+  ),
+      ChangeNotifierProvider<WidgetModel> (create: (context) => WidgetModel())
+  
+  ],
     child: const MyApp(),
   ));
 }
@@ -37,7 +40,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(scaffoldBackgroundColor: Colors.transparent),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
+      initialRoute: '/appPages',
       routes: {
         '/': (context) => const LoginPage(),
         '/registration': (context) => RegistrationPage(),
