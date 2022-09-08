@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:scaffold_gradient_background/scaffold_gradient_background.dart';
 import 'package:app_xtintas/Presenter/register_presenter.dart';
+
 class RegistrationPage extends StatefulWidget {
   RegistrationPage({Key? key}) : super(key: key);
 
@@ -48,7 +49,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           child: Image.asset('assets/bucket_and_paint.png')),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 30),
+                      padding: const EdgeInsets.only(top: 34),
                       child: Text(
                         'XTintas',
                         style: GoogleFonts.openSans(
@@ -164,7 +165,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     child: IconButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            data.fetchData( _nameController.text, _emailController.text, _passwordController.text);
+                            data.fetchData(
+                                _nameController.text,
+                                _emailController.text,
+                                _passwordController.text);
                             Navigator.of(context).pushNamed('/');
                           }
                         },
