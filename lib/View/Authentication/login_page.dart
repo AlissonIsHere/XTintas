@@ -110,6 +110,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: SizedBox(
                         height: 80,
                         width: 240,
+                        
                         child:
                             Consumer<LoginPresenter>(builder: (_, p, widget) {
                           return IconButton(
@@ -123,6 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                               icon:
                                   Image.asset('assets/large_width_button.png'));
                         }),
+
                       ),
                     ),
                     TextButton(
