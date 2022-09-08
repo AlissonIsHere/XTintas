@@ -5,10 +5,10 @@ import 'package:flutter/cupertino.dart';
 class PaintOptionsPresenter with ChangeNotifier {
   final PaintOptionsRepository paintOptionsRepository;
   PaintOptionsPresenter(this.paintOptionsRepository);
-  List<PaintOptions> listPaintOptions = [];
+  late List<PaintOptions> listPaintOptions = [];
 
   void getPaintOptions() async {
-    listPaintOptions = await paintOptionsRepository.getPaintOptions();
+    listPaintOptions = (await paintOptionsRepository.getPaintOptions()) as List<PaintOptions>;
     notifyListeners();
   }
 }
