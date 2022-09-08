@@ -118,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                                 if (_formKey.currentState!.validate()) {
                                   p.getToken();
                                   Navigator.pushNamed(
-                                      context, '/navigationBar');
+                                      context, '/appPages');
                                 }
                               },
                               icon:
