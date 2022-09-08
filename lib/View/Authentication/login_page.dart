@@ -27,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
         gradient: LinearGradient(
             begin: Alignment.bottomLeft,
             end: Alignment.topRight,
-            colors: [
+            colors: const [
               Color.fromARGB(255, 116, 99, 214),
               Color.fromRGBO(91, 77, 167, 1),
             ]),
