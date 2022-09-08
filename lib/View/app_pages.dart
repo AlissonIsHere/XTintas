@@ -1,3 +1,5 @@
+import 'package:app_xtintas/Presenter/paint_options_presenter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:scaffold_gradient_background/scaffold_gradient_background.dart';
 import 'package:flutter/material.dart';
@@ -73,9 +75,30 @@ class Store extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.amber,
-    );
+    return Consumer<PaintOptionsPresenter>(
+        builder: ((context, paint, child) => ListView.builder(
+            scrollDirection: Axis.horizontal,
+            prototypeItem: Center(
+                child: Text(
+              'Opções de tintas',
+              style: GoogleFonts.openSans(
+                  fontWeight: FontWeight.bold, fontSize: 26),
+            )),
+            itemCount: paint.listPaintOptions.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                leading:
+                    Image.network(paint.listPaintOptions[index].image ?? ''),
+                title: 
+                    Text(paint.listPaintOptions[index].name ?? ''),
+                trailing: FloatingActionButton(onPressed: () {
+                  Navigator.pushNamed(context, '/tutorial');
+                },
+                backgroundColor: const Color.fromRGBO(91, 77, 167, 1),
+                child: Text('Como pintar', style: GoogleFonts.openSans(fontWeight: FontWeight.bold, fontSize: 14, color: Colors.white),
+                ),
+              ));
+            })));
   }
 }
 
